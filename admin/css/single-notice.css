@@ -1,0 +1,38 @@
+.wrap h2.wp-heading-inline {
+	display: inline-block;
+    margin-right: 5px;
+}
+.pickle-admin-notices-admin .notice-form #poststuff .inside {
+	overflow: hidden;
+	padding: 12px;
+	margin: 0;
+}
+.pickle-admin-notices-admin .notice-form #delete-action .submitdelete {
+	color: red;
+	text-decoration: none;
+}
+.pickle-admin-notices-admin .notice-form #delete-action .submitdelete:hover {
+	text-decoration: underline;
+}
+.pickle-admin-notices-admin .notice-input-row {
+    margin-bottom: 15px;
+}
+.pickle-admin-notices-admin .notice-input-row label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+}
+.pickle-admin-notices-admin .notice-input-row input[type="text"] {
+    width: 25em;
+}
+.pickle-admin-notices-admin .notice-input-row textarea {
+    width: 25em;
+    height: 8em;    
+}
+.pickle-admin-notices-admin .notice-input-row.textarea label,
+.pickle-admin-notices-admin .notice-input-row.radio label {
+    vertical-align: top;
+}
+.pickle-admin-notices-admin .notice-input-row.radio .radio-wrap {
+    display: inline-block;   
+}

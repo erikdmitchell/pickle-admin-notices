@@ -56,10 +56,11 @@ final class PickleAdminNotices {
 	}
 
 	public function includes() {
-		//include_once(PAN_PATH.'PAN-install.php');
+    	include_once(PAN_PATH.'updater/updater.php');
+		include_once(PAN_PATH.'admin/class-pickle-admin-notices-admin.php');
 		
 		if (is_admin()) :
-			//$this->admin=new Pickle_Custom_Login_Admin();
+			$this->admin=new Pickle_Admin_Notices_Admin();
 		endif;
 	}
 
