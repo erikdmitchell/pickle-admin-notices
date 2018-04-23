@@ -147,6 +147,7 @@ gulp.task('phpcs', function () {
         .pipe(phpcs.reporter('log')); // Log all problems that was found
 });
 
+/*
 gulp.task('phpcbf', function () {
     return gulp.src(phpcsSrc)
         .pipe(phpcbf({
@@ -157,6 +158,7 @@ gulp.task('phpcbf', function () {
         .on('error', gutil.log)
         .pipe(gulp.dest('src'));
 });
+*/
 
 // Tasks to run on watch/reload EDIT
 gulp.task('watch', ['sass'], function() {		
