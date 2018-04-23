@@ -25,18 +25,16 @@ class Pickle_Admin_Notices_Admin {
     
     public function admin_page() {
         $html = '';
-/*
+
 		$tabs=array(
-			'settings' => 'Settings',
-			'taxonomies' => 'Categories',
+			'notices' => 'Notices',
 		);
-		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'settings';
-*/
+		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'notices';
+
 			
 		$html.='<div class="wrap pickle-admin-notices-admin">';
 			$html.='<h1>Pickle Admin Notices</h1>';
-			
-/*
+
 			$html.='<h2 class="nav-tab-wrapper">';
 				foreach ($tabs as $key => $name) :
 					if ($active_tab==$key) :
@@ -48,27 +46,18 @@ class Pickle_Admin_Notices_Admin {
 					$html.='<a href="?page=pickle-calendar&tab='.$key.'" class="nav-tab '.$class.'">'.$name.'</a>';
 				endforeach;
 			$html.='</h2>';
-*/
 
-/*
 			switch ($active_tab) :
-				case 'taxonomies':
-					if (isset($_GET['action']) && $_GET['action']=='edit') :
-						$html.=$this->get_admin_page('taxonomies-single');
-					else :
-						$html.=$this->get_admin_page('taxonomies');
-					endif;
+				case 'notices':
+            		if (isset($_GET['action']) && $_GET['action'] == 'edit') :
+                        $html.=$this->get_admin_page('notices-single');
+            		else :
+            			$html.=$this->get_admin_page('notices');
+            		endif;
 					break;					
 				default:
-					$html.=$this->get_admin_page('settings');
+					$html.=$this->get_admin_page('notices');
 			endswitch;
-*/
-
-    		if (isset($_GET['action']) && $_GET['action'] == 'edit') :
-                $html.=$this->get_admin_page('notices-single');
-    		else :
-    			$html.=$this->get_admin_page('notices');
-    		endif;
 
 		$html.='</div>';	        
         
