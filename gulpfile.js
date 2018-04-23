@@ -30,7 +30,7 @@ function notifyLiveReload(event) {
 	livereload.changed(fileName);
 }
 
-// build out dirs
+// build out dirs (do we need assets)
 var dirs = {
     css: 'assets/css',
     images: 'assetts/images',
@@ -137,7 +137,7 @@ gulp.task('watch', ['sass'], function() {
 
 // Default gulp task
 gulp.task('default', function() {
-  console.log('Good Day!');
+    console.log('Good Day!');
 });
 
 /*
