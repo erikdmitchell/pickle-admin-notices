@@ -30,7 +30,7 @@ function notifyLiveReload(event) {
 	livereload.changed(fileName);
 }
 
-// build out dirs (do we need assets)
+// build out dirs
 var dirs = {
     css: 'assets/css',
     images: 'assetts/images',
