@@ -65,7 +65,7 @@ class Pickle_Admin_Notices_Admin {
     }
     
     public function admin_notices() {
-        if (!$this->has_notices())
+        if (!$this->has_notices() && $this->notices != '')
             return;
             
         $html = '';
@@ -77,7 +77,7 @@ class Pickle_Admin_Notices_Admin {
                 $dismissible = '';
             endif;
             
-            $classes = array('notice', 'notice-'.$notice['type'], $dismissible);
+            $classes = array('notice', 'notice-'.$notice['type'], $dismissible, 'pickle-admin-notice');
             
             $html .= '<div class="'.implode(' ', $classes).'">';
                 $html .= '<p>'.__($notice['notice']).'</p>';
@@ -130,7 +130,7 @@ class Pickle_Admin_Notices_Admin {
 	public function setup_notices() {		
 		$default_notices=array();
 		
-		$db_notices=get_option('pickle_admin_notices', '');
+		$db_notices=get_option('pickle_admin_notices', array());
 		
 		$notices=$this->parse_args($db_notices, $default_notices);
 	
