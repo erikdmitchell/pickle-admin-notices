@@ -15,7 +15,7 @@ var plumber = require('gulp-plumber'); // Prevent pipe breaking caused by errors
 var postcss = require('gulp-postcss'); // PostCSS is a tool for transforming styles with JS plugins
 var rename = require('gulp-rename'); // rename files
 var phpcs = require('gulp-phpcs'); // Gulp plugin for running PHP Code Sniffer.
-var phpcbf = require('gulp-phpcbf'); // gulp plugin for running PHP Code Beautifier
+//var phpcbf = require('gulp-phpcbf'); // gulp plugin for running PHP Code Beautifier
 	
 // Custom error function.
 var onError = function(err) {
