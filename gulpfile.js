@@ -15,6 +15,7 @@ var plumber = require('gulp-plumber'); // Prevent pipe breaking caused by errors
 var postcss = require('gulp-postcss'); // PostCSS is a tool for transforming styles with JS plugins
 var rename = require('gulp-rename'); // rename files
 var phpcs = require('gulp-phpcs'); // Gulp plugin for running PHP Code Sniffer.
+var phpcbf = require('gulp-phpcbf'); // gulp plugin for running PHP Code Beautifier
 	
 // Custom error function.
 var onError = function(err) {
@@ -126,6 +127,35 @@ gulp.task('phpcs', function () {
             warningSeverity: 0
         }))
         .pipe(phpcs.reporter('log')); // Log all problems that was found
+});
+
+// PHP Code Beautifier.
+var phpcsSrc = [
+    '**/*.php', // Include all files    
+    '!node_modules/**', // Exclude node_modules/
+	'!vendor/**' // Exclude vendor/    
+];
+
+gulp.task('phpcs', function () {
+    return gulp.src(phpcsSrc)
+        // Validate files using PHP Code Sniffer
+        .pipe(phpcs({
+            bin: 'vendor/bin/phpcs',
+            standard: './phpcs.ruleset.xml',
+            warningSeverity: 0
+        }))
+        .pipe(phpcs.reporter('log')); // Log all problems that was found
+});
+
+gulp.task('phpcbf', function () {
+    return gulp.src(phpcsSrc)
+        .pipe(phpcbf({
+            bin: 'phpcbf',
+            standard: 'PSR2',
+            warningSeverity: 0
+        }))
+        .on('error', gutil.log)
+        .pipe(gulp.dest('src'));
 });
 
 // Tasks to run on watch/reload EDIT
