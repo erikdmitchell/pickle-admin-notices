@@ -7,9 +7,10 @@ class Pickle_Admin_Notices_Admin {
 	public function __construct() {
     	add_action('admin_enqueue_scripts', array($this, 'scripts_styles'));
         add_action('admin_menu', array($this, 'admin_menu'));
-        add_action('admin_init', array($this, 'update_notices'));
-        add_action('admin_init', array($this, 'setup_notices'), 99);
         add_action('admin_init', array($this, 'delete_notice'), 0);
+        add_action('admin_init', array($this, 'setup_notices'), 11);
+        add_action('admin_init', array($this, 'update_notices'));
+        add_action('admin_notices', array($this, 'admin_notices'), 99);
 	}	
 
     public function scripts_styles() {
@@ -70,6 +71,29 @@ class Pickle_Admin_Notices_Admin {
     		endif;
 
 		$html.='</div>';	        
+        
+        echo $html;
+    }
+    
+    public function admin_notices() {
+        if (!$this->has_notices())
+            return;
+            
+        $html = '';
+            
+        foreach ($this->notices as $notice) :
+            if ($notice['dismissible']) :
+                $dismissible = 'is-dismissible';
+            else :
+                $dismissible = '';
+            endif;
+            
+            $classes = array('notice', 'notice-'.$notice['type'], $dismissible);
+            
+            $html .= '<div class="'.implode(' ', $classes).'">';
+                $html .= '<p>'.__($notice['notice']).'</p>';
+            $html.='</div>';
+        endforeach;
         
         echo $html;
     }
